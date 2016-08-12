@@ -19,16 +19,16 @@ import (
 func main() {
 	var e venv.Env
 
-	// The real environment
+	// Use the real environment
 
 	e = e.OS()
-	fmt.Sprintf("hello, %s!", env.Getenv("USER"))
+	fmt.Printf("Hello, %s!\n", e.Getenv("USER"))
 
-	// Or use a mock environment
+	// Or use a mock
 
 	e = os.Mock()
 	e.Setenv("USER", "fred")
-	fmt.Sprintf("hello, %s!", env.Getenv("USER"))
+	fmt.Printf("Hello, %s!\n", e.Getenv("USER"))
 }
 ```
 
