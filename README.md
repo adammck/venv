@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/adammck/venv.svg?branch=master)](https://travis-ci.org/adammck/venv)
 
 This is a Go library to abstract access to environment variables.  
-Like [blang/vfs](https://github.com/blang/vfs) for the env.
+Like [spf13/afero][afero] or [blang/vfs][vfs], but for the env.
 
 ## Usage
 
@@ -35,3 +35,6 @@ func main() {
 ## License
 
 MIT.
+
+[afero]: https://github.com/spf13/afero
+[vfs]: https://github.com/blang/vfs
