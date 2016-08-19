@@ -12,8 +12,8 @@ Like [spf13/afero][afero] or [blang/vfs][vfs], but for the env.
 package main
 
 import (
-	"github.com/adammck/venv"
 	"fmt"
+	"github.com/adammck/venv"
 )
 
 func main() {
@@ -21,12 +21,12 @@ func main() {
 
 	// Use the real environment
 
-	e = e.OS()
+	e = venv.OS()
 	fmt.Printf("Hello, %s!\n", e.Getenv("USER"))
 
 	// Or use a mock
 
-	e = os.Mock()
+	e = venv.Mock()
 	e.Setenv("USER", "fred")
 	fmt.Printf("Hello, %s!\n", e.Getenv("USER"))
 }
