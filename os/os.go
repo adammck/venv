@@ -15,6 +15,10 @@ func (e *OsEnv) Getenv(key string) string {
 	return os.Getenv(key)
 }
 
+func (e *OsEnv) LookupEnv(key string) (string, bool) {
+	return os.LookupEnv(key)
+}
+
 func (e *OsEnv) Setenv(key, value string) error {
 	return os.Setenv(key, value)
 }

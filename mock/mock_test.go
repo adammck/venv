@@ -1,8 +1,9 @@
 package mock
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestMockEnv(t *testing.T) {
@@ -17,6 +18,14 @@ func TestMockEnv(t *testing.T) {
 	e.Setenv("ABC", "yyy")
 	assert.Equal(t, "yyy", e.Getenv("ABC"))
 	assert.Equal(t, []string{"ABC=yyy"}, e.Environ())
+
+	val, ok := e.LookupEnv("ABC")
+	assert.Equal(t, "yyy", val)
+	assert.True(t, ok)
+
+	val, ok = e.LookupEnv("nope")
+	assert.Equal(t, "", val)
+	assert.False(t, ok)
 
 	e.Clearenv()
 	assert.Equal(t, []string{}, e.Environ())

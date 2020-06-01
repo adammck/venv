@@ -8,6 +8,7 @@ import (
 type Env interface {
 	Environ() []string
 	Getenv(key string) string
+	LookupEnv(key string) (string, bool)
 	Setenv(key, value string) error
 	Clearenv()
 }
