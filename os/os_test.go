@@ -22,7 +22,8 @@ func TestOsEnv(t *testing.T) {
 	assert.Equal(t, "GHI", val)
 	assert.True(t, ok)
 
-	val, ok = e.LookupEnv("nope")
+	os.Unsetenv("THIS-VAR-MUST-BE-UNSET")
+	val, ok = e.LookupEnv("THIS-VAR-MUST-BE-UNSET")
 	assert.Equal(t, "", val)
 	assert.False(t, ok)
 
