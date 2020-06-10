@@ -28,6 +28,11 @@ func (e *MockEnv) Getenv(key string) string {
 	return e.data[key]
 }
 
+func (e *MockEnv) LookupEnv(key string) (string, bool) {
+	val, ok := e.data[key]
+	return val, ok
+}
+
 func (e *MockEnv) Setenv(key, value string) error {
 	e.data[key] = value
 	return nil
